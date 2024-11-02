@@ -1,0 +1,11 @@
+h1 = @category.name
+p = @category.description
+
+h2 Статьи в категории
+ul
+  - @category.articles.each do |article|
+    li = link_to article.title, category_article_path(@category, article)
+
+= link_to 'Редактировать категорию', edit_category_path(@category)
+|  |
+= link_to 'Назад к списку категорий', categories_path

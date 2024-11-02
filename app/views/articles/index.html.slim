@@ -1,0 +1,14 @@
+h1 Статьи в категории: = @category.name
+
+= link_to 'Создать статью', new_category_article_path(@category)
+
+ul
+  - @articles.each do |article|
+    li
+      = link_to article.title, category_article_path(@category, article)
+      |  -
+      = link_to 'Редактировать', edit_category_article_path(@category, article)
+      |  |
+      = link_to 'Удалить', category_article_path(@category, article), method: :delete, data: { confirm: 'Вы уверены?' }
+
+= link_to 'Назад к категориям', categories_path

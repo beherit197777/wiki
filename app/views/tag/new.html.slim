@@ -1,0 +1,12 @@
+h1 = action_name == 'new' ? 'Создать тег' : 'Редактировать тег'
+
+= form_with model: @tag, local: true do |form|
+  div
+    = form.label :name
+    br
+    = form.text_field :name
+
+  div
+    = form.submit
+
+= link_to 'Назад', tags_path

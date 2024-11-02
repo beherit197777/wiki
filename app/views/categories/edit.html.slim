@@ -1,0 +1,17 @@
+h1 = action_name == 'new' ? 'Создать категорию' : 'Редактировать категорию'
+
+= form_with model: @category, local: true do |form|
+  div
+    = form.label :name
+    br
+    = form.text_field :name
+
+  div
+    = form.label :description
+    br
+    = form.text_area :description
+
+  div
+    = form.submit
+
+= link_to 'Назад', categories_path

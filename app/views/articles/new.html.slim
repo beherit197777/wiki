@@ -1,0 +1,22 @@
+h1 = action_name == 'new' ? 'Создать статью' : 'Редактировать статью'
+
+= form_with model: [@category, @article], local: true do |form|
+  div
+    = form.label :title
+    br
+    = form.text_field :title
+
+  div
+    = form.label :content
+    br
+    = form.text_area :content
+
+  div
+    = form.label :tag_ids, 'Теги'
+    br
+    = form.collection_check_boxes :tag_ids, Tag.all, :id, :name
+
+  div
+    = form.submit
+
+= link_to 'Назад', category_articles_path(@category)

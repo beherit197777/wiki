@@ -1,0 +1,8 @@
+h1 Тег: = @tag.name
+
+h2 Статьи с этим тегом
+ul
+  - @tag.articles.each do |article|
+    li = link_to article.title, category_article_path(article.category, article)
+
+= link_to 'Назад к тегам', tags_path

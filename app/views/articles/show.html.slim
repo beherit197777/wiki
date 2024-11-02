@@ -1,0 +1,11 @@
+h1 = @article.title
+p = @article.content
+
+h3 Теги:
+ul
+  - @article.tags.each do |tag|
+    li = link_to tag.name, tag_path(tag)
+
+= link_to 'Редактировать статью', edit_category_article_path(@category, @article)
+|  |
+= link_to 'Назад к статьям', category_articles_path(@category)

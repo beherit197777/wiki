@@ -1,0 +1,12 @@
+h1 Список тегов
+
+= link_to 'Создать тег', new_tag_path
+
+ul
+  - @tags.each do |tag|
+    li
+      = link_to tag.name, tag_path(tag)
+      |  -
+      = link_to 'Редактировать', edit_tag_path(tag)
+      |  |
+      = link_to 'Удалить', tag_path(tag), method: :delete, data: { confirm: 'Вы уверены?' }
